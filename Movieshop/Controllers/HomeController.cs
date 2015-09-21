@@ -8,6 +8,7 @@ namespace Movieshop.Controllers
 {
     public class HomeController : Controller
     {
+        //hi ivan
         public ActionResult Index()
         {
             return View();
