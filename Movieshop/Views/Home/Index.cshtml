@@ -11,14 +11,17 @@
             }
             #backgroundImage{
                 display: block;
-                position: absolute;
+                position: fixed;
                 width: 100%;
                 height: 100%;
+                top: 0px;
+                left: 0px;
                 background-image: url("http://www.ealuxe.com/wp-content/uploads/2014/01/couple-watching-tv-8538.jpg");
                 background-size: cover;
                 -webkit-filter: blur(5px);
                 -moz-filter: blur(5px);
                 -ms-filter: blur(5px);
+                z-index: -9999;
             }
             #filterHolder{
                 display: block;
@@ -30,13 +33,18 @@
                 margin-top: -250px;
             }
             #bodyHolder{
+                position: relative;
                 width: 800px;
+                height: 2000px;
+                top: 0px;
                 margin: auto;
+                background-color: rgba(100, 100, 100, 0.5);
             }
             #header{
                 position: relative;
                 width: 100%;
                 height: 100px;
+                margin-top: 10px;
                 color: white;
                 line-height: 100px;
                 font-family: Tahoma;
