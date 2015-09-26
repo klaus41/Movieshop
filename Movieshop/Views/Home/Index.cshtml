@@ -20,9 +20,40 @@
                 -moz-filter: blur(5px);
                 -ms-filter: blur(5px);
             }
+            #filterHolder{
+                display: block;
+                position: fixed;
+                width: 150px;
+                height: 500px;
+                background-color: black;
+                top: 50%;
+                margin-top: -250px;
+            }
+            #bodyHolder{
+                width: 800px;
+                margin: auto;
+            }
+            #header{
+                position: relative;
+                width: 100%;
+                height: 100px;
+                color: white;
+                line-height: 100px;
+                font-family: Tahoma;
+                font-size: 60px;
+                text-shadow: 2px 2px black;
+                vertical-align: middle;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <div id="backgroundImage"></div>
+        <div id="filterHolder">
+
+        </div>
+        <div id="bodyHolder">
+            <div id="header">Klaus and Ivan's Movie Shop</div>
+        </div>
     </body>
 </html>
