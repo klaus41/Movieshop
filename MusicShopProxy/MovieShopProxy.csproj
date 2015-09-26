@@ -7,8 +7,8 @@
     <ProjectGuid>{3112EE36-887B-416C-BB79-1591C01C570F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MusicShopProxy</RootNamespace>
-    <AssemblyName>MusicShopProxy</AssemblyName>
+    <RootNamespace>MovieShopProxy</RootNamespace>
+    <AssemblyName>MovieShopProxy</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

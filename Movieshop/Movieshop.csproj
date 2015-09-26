@@ -189,9 +189,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MusicShopProxy\MusicShopProxy.csproj">
+    <ProjectReference Include="..\MusicShopProxy\MovieShopProxy.csproj">
       <Project>{3112ee36-887b-416c-bb79-1591c01c570f}</Project>
-      <Name>MusicShopProxy</Name>
+      <Name>MovieShopProxy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

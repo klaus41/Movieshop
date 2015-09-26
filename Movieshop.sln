@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movieshop", "Movieshop\Movieshop.csproj", "{1E94DA59-6304-4083-967D-98FD62416B80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicShopProxy", "MusicShopProxy\MusicShopProxy.csproj", "{3112EE36-887B-416C-BB79-1591C01C570F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieShopProxy", "MusicShopProxy\MovieShopProxy.csproj", "{3112EE36-887B-416C-BB79-1591C01C570F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
