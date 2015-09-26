@@ -29,5 +29,17 @@ namespace Movieshop.Controllers
             facade.GetMovieRepository().Add(movie);
             return Redirect("Index");
         }
+
+        public ActionResult Delete(Movie movie)
+        {
+            return View(movie);
+        }
+
+        public ActionResult DeleteAccepted(Movie movie)
+        {
+            facade.GetMovieRepository().Delete(movie);
+            return Redirect("Index");
+
+        }
     }
 }

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Data.Entity.Infrastructure;
 
 namespace Movieshop.Repository
 {
@@ -31,5 +31,20 @@ namespace Movieshop.Repository
             }
         }
 
+        public void Delete(Movie movie)
+        {
+            try { 
+            using (var ctx = new MovieShopDB())
+            {
+                ctx.Movies.Attach(movie);
+                ctx.Movies.Remove(movie);
+                ctx.SaveChanges();
+            }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                
+            }
+        }
     }
 }
