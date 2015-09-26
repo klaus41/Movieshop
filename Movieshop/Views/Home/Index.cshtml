@@ -28,17 +28,17 @@
                 position: fixed;
                 width: 150px;
                 height: 500px;
-                background-color: black;
+                background-color: rgba(100, 100, 100, 0.75);
                 top: 50%;
                 margin-top: -250px;
             }
             #bodyHolder{
                 position: relative;
-                width: 800px;
+                width: 900px;
                 height: 2000px;
                 top: 0px;
                 margin: auto;
-                background-color: rgba(100, 100, 100, 0.5);
+                background-color: rgba(100, 100, 100, 0.75);
             }
             #header{
                 position: relative;
@@ -53,6 +53,50 @@
                 vertical-align: middle;
                 text-align: center;
             }
+            #movieHolder{
+                position: relative;
+                margin-top: 130px;
+            }
+            .moviePoster{
+                display: block;
+                margin: auto;
+                width: 180px;
+                height: 260px;
+                background-size: 100% 100%;
+                box-shadow: 5px 5px 5px black;
+                transition: 0.2s;
+            }
+            .moviePoster:hover{
+                transform: scale(1.2);
+            }
+            #movie1{
+                background-image: url("http://webneel.com/daily/sites/default/files/images/daily/02-2013/24-silence-of-the-lambs-creative-movie-poster-design.jpg");
+            }
+            #movie2{
+                background-image: url("http://www.smashingmagazine.com/images/movie-posters/8.jpg");
+            }
+            #movie3{
+                background-image: url("http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-the_dark_knight_movie_poster.jpg");
+            }
+            #movie4{
+                background-image: url("https://blackwhiteandredposters.files.wordpress.com/2010/11/gamer-movie-poster.jpg");
+            }
+            #movie5{
+                background-image: url("https://davidcmasseya2.files.wordpress.com/2012/03/the-grey-movie-poster-01.jpg");
+            }
+            #movie6{
+                background-image: url("http://images6.fanpop.com/image/photos/32200000/Les-Miserables-2012-Movie-Poster-les-miserables-32280119-864-1280.jpg");
+            }
+            table{
+                border-spacing: 0px;
+            }
+            td{
+                padding: 0px;
+                width: 300px;
+                height: 340px;
+                text-align: center;
+                vertical-align: top;
+            }
         </style>
     </head>
     <body>
@@ -62,6 +106,32 @@
         </div>
         <div id="bodyHolder">
             <div id="header">Klaus and Ivan's Movie Shop</div>
+            <div id="movieHolder">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="moviePoster" id="movie1"></div>
+                        </td>
+                        <td>
+                            <div class="moviePoster" id="movie2"></div>
+                        </td>
+                        <td>
+                            <div class="moviePoster" id="movie3"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="moviePoster" id="movie4"></div>
+                        </td>
+                        <td>
+                            <div class="moviePoster" id="movie5"></div>
+                        </td>
+                        <td>
+                            <div class="moviePoster" id="movie6"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </body>
 </html>
