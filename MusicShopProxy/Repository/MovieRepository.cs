@@ -30,9 +30,21 @@ namespace Movieshop.Repository
                 ctx.SaveChanges();
             }
         }
+        /* delete through  id:
+            
+            Movie movie = null;
+            foreach (var item in ReadAll())
+            {
+                if (movieId == item.Id)
+                {
+                    movie = item;
+                }
+            }
+            */
 
         public void Delete(Movie movie)
         {
+           
             try { 
             using (var ctx = new MovieShopDB())
             {
@@ -45,6 +57,27 @@ namespace Movieshop.Repository
             {
                 
             }
+        }
+
+        public Movie FindMovie(int movieId)
+        {
+            foreach (var item in ReadAll())
+            {
+                if (item.Id == movieId)
+                {
+                    return item;
+                }
+
+            }
+            return null;
+        }
+
+        public void Update(Movie movie)
+        {
+            var movieRepo = FindMovie(movie.Id);
+            movieRepo.Title = movie.Title;
+            movieRepo.ReleaseDate = movie.ReleaseDate;
+            movieRepo.Price = movie.Price;
         }
     }
 }

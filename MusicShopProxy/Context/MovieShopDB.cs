@@ -9,9 +9,14 @@ namespace MovieShopProxy.Context
 {
     public class MovieShopDB : DbContext
     {
-        public MovieShopDB() : base("MovieShopDB") { }
-
+        public MovieShopDB(): base("MovieShopDB")
+        {
+            Database.SetInitializer(new MovieShopDBInitializer());
+        }
+        
+    
         public DbSet<Movie> Movies { get; set; }
 
     }
 }
+
