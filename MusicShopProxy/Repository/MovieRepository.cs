@@ -74,10 +74,22 @@ namespace Movieshop.Repository
 
         public void Update(Movie movie)
         {
-            var movieRepo = FindMovie(movie.Id);
-            movieRepo.Title = movie.Title;
-            movieRepo.ReleaseDate = movie.ReleaseDate;
-            movieRepo.Price = movie.Price;
+            using (var ctx = new MovieShopDB())
+            {
+                foreach (var movieDB in ctx.Movies.ToList())
+                {
+                    if (movie.Id == movieDB.Id)
+                    {
+                        movieDB.Title = movie.Title;
+                        movieDB.ReleaseDate = movie.ReleaseDate;
+                        movieDB.Price = movie.Price;
+                        ctx.SaveChanges();
+
+                    }
+                }
+            }
+
+
         }
     }
 }

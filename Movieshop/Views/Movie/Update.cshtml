@@ -8,9 +8,9 @@ ViewBag.Title = "Update";
 
 <form method="post" action="~/Movie/Update" class="col-md-12">
       <input type="hidden" class="form-control" name="Id" value="@Model.Id" hidden>
-    <input type="text" class="form-control" name="Name" value="@Model.Title">
-    <input type="date" class="form-control" name="Salary" value="@Model.ReleaseDate.ToString("yyyy-MM-dd")">
-    <input type="number" class="form-control" name="Birthdate" value="@Model.Price">
+    <input type="text" class="form-control" name="Title" value="@Model.Title">
+    <input type="date" class="form-control" name="ReleaseDate" value="@Model.ReleaseDate.ToString("yyyy-MM-dd")">
+    <input type="number" class="form-control" name="Price" value="@Model.Price">
     <button type="submit" class="btn btn-default"> Update</button>
     </form>
 

@@ -12,8 +12,15 @@ namespace MovieShopProxy.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Title")]
+        [StringLength(30)]
         public string Title { get; set; }
+        [Range(1,9000)]
+        [DataType("number")]
         public int Price { get; set; }
+        [DataType("date")]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
 
