@@ -30,24 +30,22 @@ namespace Movieshop.Controllers
             return Redirect("Index");
         }
         
-        public ActionResult Delete(Movie movie)
+        public ActionResult Delete(int movieId)
         {
-            facade.GetMovieRepository().Delete(movie);
-            return RedirectToAction("Index", "Movie");
-            //return View(movieId);
+            return View(movieId);
         }
 
-        /*
+        
         [HttpPost]
         [ActionName("DeleteAccepted")]
-        public ActionResult DeleteAccepted(Movie movie)
+        public ActionResult DeleteAccepted(int movieId)
         {
-            facade.GetMovieRepository().Delete(movie);
+            facade.GetMovieRepository().Delete(movieId);
             return Redirect("Index");
 
         }
 
-    */
+    
         [HttpGet]
         public ActionResult Update(int movieId)
         {

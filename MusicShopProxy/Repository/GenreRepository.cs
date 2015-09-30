@@ -2,13 +2,14 @@
 using MovieShopProxy.DomainModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MovieShopProxy.Repository
 {
-    class GenreRepository
+    public class GenreRepository
     {
         public List<Genre> ReadAll()
         {
@@ -17,6 +18,54 @@ namespace MovieShopProxy.Repository
                 return ctx.Genres.ToList();
             }
         }
+        
+        public void Delete(int genreId)
+        {
+            Genre genre = FindGenre(genreId);
+            try
+            {
+                using (var ctx = new MovieShopDB())
+                {
+                    ctx.Genres.Attach(genre);
+                    ctx.Genres.Remove(genre);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
 
+            }
+        }
+
+        public Genre FindGenre(int genreId)
+        {
+            foreach (var item in ReadAll())
+            {
+                if (item.Id == genreId)
+                {
+                    return item;
+                }
+
+            }
+            return null;
+        }
+
+        public void Update(Genre genre)
+        {
+            using (var ctx = new MovieShopDB())
+            {
+                foreach (var movieDB in ctx.Genres.ToList())
+                {
+                    if (genre.Id == movieDB.Id)
+                    {
+                        movieDB.Name = genre.Name;
+                        ctx.SaveChanges();
+
+                    }
+                }
+            }
+
+
+        }
     }
 }

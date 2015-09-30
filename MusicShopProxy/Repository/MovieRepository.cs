@@ -30,21 +30,11 @@ namespace Movieshop.Repository
                 ctx.SaveChanges();
             }
         }
-        /* delete through  id:
-            
-            Movie movie = null;
-            foreach (var item in ReadAll())
-            {
-                if (movieId == item.Id)
-                {
-                    movie = item;
-                }
-            }
-            */
+        
 
-        public void Delete(Movie movie)
+        public void Delete(int movieId)
         {
-           
+            Movie movie = FindMovie(movieId);
             try { 
             using (var ctx = new MovieShopDB())
             {
