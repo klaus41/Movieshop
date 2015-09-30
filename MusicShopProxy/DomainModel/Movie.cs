@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieShopProxy.DomainModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,7 +23,11 @@ namespace MovieShopProxy.Models
         [DataType("date")]
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
-
+        [Display(Name = "Trailer Link")]
+        public string TrailerURL { get; set; }
+        [Display(Name = "Picture Link")]
+        public string PictureURL { get; set; }
+        public virtual Genre Genre { get; set; }
 
     }
 }

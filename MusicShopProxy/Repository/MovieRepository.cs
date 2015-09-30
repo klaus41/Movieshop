@@ -83,6 +83,8 @@ namespace Movieshop.Repository
                         movieDB.Title = movie.Title;
                         movieDB.ReleaseDate = movie.ReleaseDate;
                         movieDB.Price = movie.Price;
+                        movieDB.TrailerURL = movie.TrailerURL;
+                        movieDB.PictureURL = movie.PictureURL;
                         ctx.SaveChanges();
 
                     }
