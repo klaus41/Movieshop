@@ -26,10 +26,9 @@
             }
             #filterHolder{
                 position: fixed;
-                height: 50%;
                 width: 10%;
                 background-color: rgba(100, 100, 100, 0.75);
-                top: 25%;
+                top: 30%;
             }
             #bodyHolder{
                 position: absolute;
@@ -129,7 +128,7 @@
                 font-size: 2.3vh;
                 text-align: center;
             }
-            .filterTable{
+            .filterTable, .filterTable2{
                 border-spacing: 0px;
                 position: relative;
                 margin-top: 15%;
@@ -137,10 +136,10 @@
                 font-family: Tahoma;
                 font-size: 1.7vh;
             }
-            .filterTable td{
+            .filterTable td, .filterTable2 td{
                 text-align: left;
             }
-            .filterTable td select{
+            .filterTable td select, .filterTable2 td select{
                 width: 100%;
                 font-family: Tahoma;
                 font-size: 1.7vh;
@@ -148,6 +147,9 @@
             }
             th{
                 text-align: center;
+            }
+            .filterTable2{
+                margin-bottom: 5%;
             }
         </style>
     </head>
@@ -207,7 +209,7 @@
                     <td></td>
                 </tr>
             </table>
-            <table class="filterTable">
+            <table class="filterTable2">
                 <tr>
                     <th>Rating:</th>
                 </tr>
