@@ -8,15 +8,16 @@
                 padding: 0px;
                 width: 100%;
                 height: 100%;
+                vertical-align: middle;
             }
             #backgroundImage{
                 display: block;
                 position: fixed;
-                width: 100%;
-                height: 100%;
-                top: 0px;
-                left: 0px;
-                background-image: url("http://www.ealuxe.com/wp-content/uploads/2014/01/couple-watching-tv-8538.jpg");
+                top: -5px;
+                left: -5px;
+                bottom: -5px;
+                right: -5px;
+                background-image: url("http://leaguematch.altervista.org/back.jpg");
                 background-size: cover;
                 -webkit-filter: blur(5px);
                 -moz-filter: blur(5px);
@@ -24,37 +25,47 @@
                 z-index: -9999;
             }
             #filterHolder{
-                display: block;
                 position: fixed;
-                width: 150px;
-                height: 500px;
+                width: 10%;
+                background: -webkit-linear-gradient(left, rgba(100, 100, 100, 0.75), rgba(100, 100, 100, 0));
+                top: 30%;
+                transition: 0.2s;
+            }
+            #filterHolder:hover{
                 background-color: rgba(100, 100, 100, 0.75);
-                top: 50%;
-                margin-top: -250px;
             }
             #bodyHolder{
-                position: relative;
-                width: 75%;
-                height: 2000px;
-                top: 0px;
-                margin: auto;
-                /*background-color: rgba(100, 100, 100, 0.75);*/
-            }
-            #movieHolder{
-                position: relative;
-                margin-top: 150px;
+                position: absolute;
+                width: 80%;
+                height: 150%;
+                top: 7%;
+                margin-left: 10%;
+                margin-right: 10%;
             }
             .moviePoster{
+                position: relative;
                 display: block;
+                width: 63%;
+                height: 74%;
                 margin: auto;
-                width: 180px;
-                height: 260px;
                 background-size: 100% 100%;
                 box-shadow: 5px 5px 5px black;
                 transition: 0.2s;
             }
             .moviePoster:hover{
                 transform: scale(1.2);
+            }
+            .moviePoster:hover > .movieInformation{
+                opacity: 1;
+            }
+            .movieTable{
+                border-spacing: 0px;
+                height: 28%;
+                width: 100%;
+            }
+            td{
+                width: 10%;
+                text-align: center;
             }
             #movie1{
                 background-image: url("http://webneel.com/daily/sites/default/files/images/daily/02-2013/24-silence-of-the-lambs-creative-movie-poster-design.jpg");
@@ -116,95 +127,257 @@
             #movie20{
                 background-image: url("http://www.movienewz.com/img/gallery/martian/posters/martian_movie_poster_1.jpg");
             }
-            table{
-                border-spacing: 0px;
-            }
-            td{
-                padding: 0px;
-                width: 300px;
-                height: 340px;
+            #filterHeader{
+                width: 100%;
+                margin-top: 5%;
+                color: white;
+                font-family: Tahoma;
+                font-size: 2.3vh;
                 text-align: center;
+            }
+            .filterTable, .filterTable2{
+                border-spacing: 0px;
+                position: relative;
+                margin-top: 15%;
+                color: white;
+                font-family: Tahoma;
+                font-size: 1.7vh;
+            }
+            .filterTable td, .filterTable2 td{
+                text-align: left;
+            }
+            .filterTable td select, .filterTable2 td select{
+                width: 100%;
+                font-family: Tahoma;
+                font-size: 1.7vh;
+                text-indent: 0px;
+            }
+            th{
+                text-align: center;
+            }
+            .filterTable2{
+                margin-bottom: 5%;
+            }
+            #searchHolder{
+                position: fixed;
+                top: 0px;
+                width: 100%;
+                height: 5%;
+                background: -webkit-linear-gradient(rgba(100, 100, 100, 1), rgba(100, 100, 100, 0));
+                text-align: center;
+                z-index: 9999;
+                transition: 0.2s;
+            }
+            #searchHolder:hover{
+                background-color: rgba(100, 100, 100, 0.75);
+            }
+            #searchForm input{
+                font-size: 1.5vh;
+            }
+            #searchHolderTable{
+                position: relative;
+                border-spacing: 0px;
+                height: 100%;
+            }
+            .movieInformation{
+                position: relative;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.75);
+                color: white;
+                font-family: Tahoma;
+                font-size: 1.5vh;
+                opacity: 0;
+                text-align: left;
+                transition: 0.2s;
+            }
+            a.moviePoster:visited > #testDiv{
+                background-color: green;
             }
         </style>
     </head>
     <body>
         <div id="backgroundImage"></div>
+        <div id="searchHolder">
+            <table id="searchHolderTable">
+                <tr>
+                    <td>
+                        <form id="searchForm" method="post" action="">
+                            <input type="text" />
+                            <input type="submit" value="Search Our Shop!" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div id="filterHolder">
-
+            <div id="filterHeader">Movie Filter</div>
+            <table class="filterTable">
+                <tr>
+                    <th>Genre:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select>
+                            <option>Unspecified</option>
+                            <option>Comedy</option>
+                            <option>Horror</option>
+                            <option>Action</option>
+                            <option>Drama</option>
+                            <option>Musical</option>
+                            <option>War</option>
+                            <option>History</option>
+                            <option>Animated</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <table class="filterTable">
+                <tr>
+                    <th>Release Date:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="first" />
+                        <label for="first">1980-1989</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="first" />
+                        <label for="first">1990-1999</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="first" />
+                        <label for="first">2000-2009</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="first" />
+                        <label for="first">2009-Present</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+            <table class="filterTable2">
+                <tr>
+                    <th>Rating:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select>
+                            <option>Unspecified</option>
+                            <option>1+ Stars</option>
+                            <option>2+ Stars</option>
+                            <option>3+ Stars</option>
+                            <option>4+ Stars</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="bodyHolder">
-            <div id="movieHolder">
-                <table>
-                    <tr>
-                        <td>
-                            <div class="moviePoster" id="movie1"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie2"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie3"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie4"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie5"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="moviePoster" id="movie6"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie7"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie8"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie9"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie10"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="moviePoster" id="movie11"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie12"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie13"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie14"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie15"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="moviePoster" id="movie16"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie17"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie18"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie19"></div>
-                        </td>
-                        <td>
-                            <div class="moviePoster" id="movie20"></div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            <table class="movieTable">
+                <tr>
+                    <td>
+                        <a href="" class="moviePoster" id="movie1">
+                            <table class="movieInformation">
+                                <tr>
+                                    <td>Title:</td>
+                                    <td>Silence of The Lambs</td>
+                                </tr>
+                                <tr>
+                                    <td>Released:</td>
+                                    <td>1991</td>
+                                </tr>
+                                <tr>
+                                    <td>Genre:</td>
+                                    <td>Crime, Drama, Thriller</td>
+                                </tr>
+                                <tr>
+                                    <td>Rating:</td>
+                                    <td>&#8902;&#8902;&#8902;&#8902;</td>
+                                </tr>
+                            </table>
+                            <div id="testDiv">This is a test div.</div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie2"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie3"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie4"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie5"></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="movieTable">
+                <tr>
+                    <td>
+                        <a href="" class="moviePoster" id="movie6"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie7"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie8"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie9"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie10"></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="movieTable">
+                <tr>
+                    <td>
+                        <a href="" class="moviePoster" id="movie11"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie12"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie13"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie14"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie15"></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="movieTable">
+                <tr>
+                    <td>
+                        <a href="" class="moviePoster" id="movie16"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie17"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie18"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie19"></a>
+                    </td>
+                    <td>
+                        <a href="" class="moviePoster" id="movie20"></a>
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>
