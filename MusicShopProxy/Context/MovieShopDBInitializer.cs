@@ -16,6 +16,7 @@ namespace MovieShopProxy.Context
         {
             IList<Movie> movies = new List<Movie>();
             IList<Genre> genres = new List<Genre>();
+            GenreRepository genreRepo = new GenreRepository();
             movies.Add(new Movie() {
                 Title = "The Dark Knight",
                 ReleaseDate = new DateTime(2008, 07, 22),
@@ -27,12 +28,16 @@ namespace MovieShopProxy.Context
                 ReleaseDate = new DateTime(2015, 10, 19),
                 Price = 250,
                 PictureURL = "http://www.movienewz.com/img/gallery/martian/posters/martian_movie_poster_1.jpg",
-                TrailerURL = "https://www.youtube.com/embed/ej3ioOneTy8"});
+                TrailerURL = "https://www.youtube.com/embed/ej3ioOneTy8",
+                Genre = genreRepo.FindGenre(2)
+            });
             movies.Add(new Movie() { Title = "Insurgent",
                 ReleaseDate = new DateTime(2015, 03, 11),
                 Price = 150,
                 PictureURL = "http://www.movienewz.com/img/gallery/insurgent/posters/insurgent_movie_poster_3.jpg",
-                TrailerURL = "https://www.youtube.com/embed/IR-l_TSjlEo" });
+                TrailerURL = "https://www.youtube.com/embed/IR-l_TSjlEo",
+                
+            });
 
             foreach (Movie mov in movies)
                 context.Movies.Add(mov);
