@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MovieShopProxy.Models.Movie>
+﻿﻿@model IEnumerable<MovieShopProxy.Models.Movie>
 @{
     ViewBag.Title = "Index";
 }
@@ -32,9 +32,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.DisplayFor(modelItem => item.PictureURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrailerURL)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { movieId = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { movieId = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { movieId = item.Id })
             </td>
         </tr>
     }
