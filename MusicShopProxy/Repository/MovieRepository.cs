@@ -11,6 +11,7 @@ namespace Movieshop.Repository
     public class MovieRepository
     {
         public List<Movie> ReadAll()
+<<<<<<< HEAD
         { 
                 List<Movie> movies = new List<Movie>();
                 movies.Add(new Movie()
@@ -183,6 +184,14 @@ namespace Movieshop.Repository
                 });
                 return movies;
                 //return ctx.Movies.ToList();
+=======
+        {
+            using (var ctx = new MovieShopDB())
+            {
+                return ctx.Movies.Include("Genres").ToList();
+                    
+            }
+>>>>>>> 1e85fe630e0a05ddc8326367f98bfa08604b7688
         }
 
 
@@ -242,6 +251,7 @@ namespace Movieshop.Repository
                         movieDB.Price = movie.Price;
                         movieDB.TrailerURL = movie.TrailerURL;
                         movieDB.PictureURL = movie.PictureURL;
+                        //movieDB.Genres = movie.Genres;
                         ctx.SaveChanges();
 
                     }
