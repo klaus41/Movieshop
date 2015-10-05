@@ -3,6 +3,7 @@ using MovieShopProxy.Models;
 using MovieShopProxy.Repository;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +17,7 @@ namespace Movieshop.Controllers
         public ActionResult Index()
         {
             List<Movie> movies = facade.GetMovieRepository().ReadAll();
+            Debug.WriteLine(movies);
             return View(movies);
         }
         public ActionResult Create()

@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using MovieShopProxy.Models;
 using MovieShopProxy.DomainModel;
+using System.Diagnostics;
 
 namespace MovieShopProxy.Context
 {
@@ -12,6 +13,7 @@ namespace MovieShopProxy.Context
     {
         public MovieShopDB(): base("MovieShopDB")
         {
+            Debug.WriteLine("Making a database!");
             Database.SetInitializer(new MovieShopDBInitializer());
         }
         

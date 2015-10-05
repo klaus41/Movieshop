@@ -1,21 +1,16 @@
-﻿using MovieShopProxy.Models;
-using MovieShopProxy.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Movieshop.Controllers
+namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        //hi ivan
-        private Facade facade = new Facade();
         public ActionResult Index()
         {
-            List<Movie> movies = facade.GetMovieRepository().ReadAll();
-            return View(movies);
+            return View();
         }
 
         public ActionResult About()
