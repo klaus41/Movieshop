@@ -12,10 +12,17 @@ namespace MovieShopProxy.DomainModel
     [Table("Genre")]
     public class Genre
     {
+        public Genre()
+        {
+            this.Movies = new HashSet<Movie>();
+        }
         [Key]
         public int Id { get; set; }
+        
         public string Name { get; set; }
 
-        public virtual List<Movie> Movies { get; set; }
+        public virtual ICollection<Movie> Movies { get; set; }
+        // Use this instead of HashSet for a one-to-many relation
+        //public virtual List<Movie> Movies { get; set; }
     }
 }

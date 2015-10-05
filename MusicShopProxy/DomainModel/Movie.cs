@@ -11,13 +11,14 @@ namespace MovieShopProxy.Models
     [Table("Movie")]
     public class Movie
     {
+        public Movie() { }
         [Key]
         public int Id { get; set; }
-
+        [Required]
         [Display(Name = "Title")]
         [StringLength(30)]
         public string Title { get; set; }
-        [Range(1,9000)]
+        [Range(1, 9000)]
         [DataType("number")]
         public int Price { get; set; }
         [DataType("date")]
@@ -27,7 +28,7 @@ namespace MovieShopProxy.Models
         public string TrailerURL { get; set; }
         [Display(Name = "Picture Link")]
         public string PictureURL { get; set; }
-        public virtual Genre Genre { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; }
 
     }
 }

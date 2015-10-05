@@ -14,7 +14,8 @@ namespace Movieshop.Repository
         {
             using (var ctx = new MovieShopDB())
             {
-                return ctx.Movies.ToList();
+                return ctx.Movies.Include("Genres").ToList();
+                    
             }
         }
 
@@ -75,6 +76,7 @@ namespace Movieshop.Repository
                         movieDB.Price = movie.Price;
                         movieDB.TrailerURL = movie.TrailerURL;
                         movieDB.PictureURL = movie.PictureURL;
+                        //movieDB.Genres = movie.Genres;
                         ctx.SaveChanges();
 
                     }
