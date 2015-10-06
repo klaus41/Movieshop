@@ -75,7 +75,7 @@ namespace MovieShopProxy.Context
             });
             movies.Add(new Movie()
             {
-                Title = "Harry Potter and The Order of the Phoenix",
+                Title = "Harry Potter",
                 ReleaseDate = new DateTime(2007, 07, 11),
                 Price = 150,
                 PictureURL = "http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-harry-potter-phoenix.jpg",

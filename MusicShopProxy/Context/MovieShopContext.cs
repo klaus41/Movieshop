@@ -18,7 +18,10 @@ namespace MovieShopProxy.Context
         }
 
         //OnModelCreating States exactly which lists the tables are connected as many-to-many through
-        
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Movie>().HasMany(g => g.Genres).WithMany();
+        }
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
