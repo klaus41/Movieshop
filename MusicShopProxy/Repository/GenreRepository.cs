@@ -13,7 +13,7 @@ namespace MovieShopProxy.Repository
     {
         public List<Genre> ReadAll()
         {
-            using (var ctx = new MovieShopDB())
+            using (var ctx = new MovieShopContext())
             {
                 return ctx.Genres.ToList();
             }
@@ -24,7 +24,7 @@ namespace MovieShopProxy.Repository
             Genre genre = FindGenre(genreId);
             try
             {
-                using (var ctx = new MovieShopDB())
+                using (var ctx = new MovieShopContext())
                 {
                     ctx.Genres.Attach(genre);
                     ctx.Genres.Remove(genre);
@@ -52,7 +52,7 @@ namespace MovieShopProxy.Repository
 
         public void Update(Genre genre)
         {
-            using (var ctx = new MovieShopDB())
+            using (var ctx = new MovieShopContext())
             {
                 foreach (var movieDB in ctx.Genres.ToList())
                 {

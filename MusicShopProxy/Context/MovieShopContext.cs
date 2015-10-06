@@ -9,15 +9,17 @@ using System.Diagnostics;
 
 namespace MovieShopProxy.Context
 {
-    public class MovieShopDB : DbContext
+    public class MovieShopContext : DbContext
     {
-        public MovieShopDB(): base("MovieShopDB")
+        public MovieShopContext(): base("MovieShopDB")
         {
             Debug.WriteLine("Making a database!");
-            Database.SetInitializer(new MovieShopDBInitializer());
+            Database.SetInitializer(new MovieShopContextInitializer());
         }
+
+        //OnModelCreating States exactly which lists the tables are connected as many-to-many through
         
-    
+
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         

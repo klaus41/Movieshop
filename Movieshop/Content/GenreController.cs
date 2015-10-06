@@ -11,7 +11,7 @@ namespace Movieshop.Controllers
 {
     public class GenreController : Controller
     {
-        private MovieShopDB db = new MovieShopDB();
+        private MovieShopContext db = new MovieShopContext();
 
         private Facade facade = new Facade();
 

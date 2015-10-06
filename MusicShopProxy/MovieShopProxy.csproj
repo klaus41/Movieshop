@@ -55,8 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\MovieShopDBInitializer.cs" />
-    <Compile Include="Context\MovieShopDB.cs" />
+    <Compile Include="Context\MovieShopContextInitializer.cs" />
+    <Compile Include="Context\MovieShopContext.cs" />
     <Compile Include="DomainModel\Customer.cs" />
     <Compile Include="DomainModel\Genre.cs" />
     <Compile Include="DomainModel\Movie.cs" />

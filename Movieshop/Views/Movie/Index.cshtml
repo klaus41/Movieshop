@@ -38,6 +38,7 @@
                 @Html.DisplayFor(modelItem => item.TrailerURL)
             </td>
             <td>
+                @foreach (var genre in item.Genres) { @Html.DisplayFor(modelItem => genre.Name)}
             </td>
             <td>
                 @Html.ActionLink("Update", "Update", new { movieId = item.Id }) |

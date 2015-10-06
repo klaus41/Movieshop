@@ -12,7 +12,7 @@ namespace Movieshop.Repository
     {
         public List<Movie> ReadAll()
         {
-            using (var ctx = new MovieShopDB())
+            using (var ctx = new MovieShopContext())
             {
                 return ctx.Movies.Include("Genres").ToList();
                     
@@ -22,7 +22,7 @@ namespace Movieshop.Repository
 
         public void Add(Movie movie)
         {
-            using (var ctx = new MovieShopDB())
+            using (var ctx = new MovieShopContext())
             {
                 
                 //Create the queries
@@ -37,7 +37,7 @@ namespace Movieshop.Repository
         {
             Movie movie = FindMovie(movieId);
             try { 
-            using (var ctx = new MovieShopDB())
+            using (var ctx = new MovieShopContext())
             {
                 ctx.Movies.Attach(movie);
                 ctx.Movies.Remove(movie);
@@ -65,7 +65,7 @@ namespace Movieshop.Repository
 
         public void Update(Movie movie)
         {
-            using (var ctx = new MovieShopDB())
+            using (var ctx = new MovieShopContext())
             {
                 foreach (var movieDB in ctx.Movies.ToList())
                 {
