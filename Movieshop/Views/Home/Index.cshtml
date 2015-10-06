@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<MovieShopProxy.Models.Movie>
 @{ 
     Layout = null;
+    int index = 0;
+    var listCount = Model.Count();
 }
 <html>
     <head>
@@ -48,8 +50,8 @@
             .moviePoster{
                 position: relative;
                 display: block;
-                width: 63%;
-                height: 74%;
+                width: 70%;
+                height: 100%;
                 margin: auto;
                 background-size: 100% 100%;
                 box-shadow: 5px 5px 5px black;
@@ -65,8 +67,11 @@
             }
             .movieTable{
                 border-spacing: 0px;
+                padding-top: 3%;
+                padding-bottom: 3%;
                 height: 28%;
                 width: 100%;
+                text-align: center;
             }
             td{
                 width: 10%;
@@ -284,29 +289,37 @@
             {
                 <table class="movieTable">
                     <tr>
-                        @for(int j = 1; j <= 5; j++)
+                        @for (int j = 1; j <= 5; j++)
                         {
                             <td>
-                                <a href="#modalOpen" class="moviePoster" style="background-image: url('@Model.ElementAt((((i - 1) * 5) + j) - 1).PictureURL');">
-                                    <table class="movieInformation">
-                                        <tr>
-                                            <td>Title:</td>
-                                            <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).Title</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Released:</td>
-                                            <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).ReleaseDate</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Genre:</td>
-                                            <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).Genres</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rating:</td>
-                                            <td>&#8902;&#8902;&#8902;&#8902;</td>
-                                        </tr>
-                                    </table>
-                                </a>
+                                @if ((((i - 1) * 5) + j) - 1 < listCount)
+                                {
+                                    <a href="#modalOpen" class="moviePoster" style="background-image: url('@Model.ElementAt((((i - 1) * 5) + j) - 1).PictureURL');">
+                                        <table class="movieInformation">
+                                            <tr>
+                                                <td>Title:</td>
+                                                <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).Title</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Released:</td>
+                                                <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).ReleaseDate</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Genre:</td>
+                                                <td>
+                                                    @foreach(var item in Model.ElementAt((((i - 1) * 5) + j) - 1).Genres)
+                                                    {
+                                                        @item.Name<br />
+                                                    }
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rating:</td>
+                                                <td>&#8902;&#8902;&#8902;&#8902;</td>
+                                            </tr>
+                                        </table>
+                                    </a>
+                                }
                             </td>
                         }
                     </tr>
