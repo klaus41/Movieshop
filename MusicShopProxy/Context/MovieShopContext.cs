@@ -16,12 +16,11 @@ namespace MovieShopProxy.Context
             Debug.WriteLine("Making a database!");
             Database.SetInitializer(new MovieShopContextInitializer());
         }
-
-        //OnModelCreating States exactly which lists the tables are connected as many-to-many through
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Movie>().HasMany(g => g.Genres).WithMany();
         }
+        //OnModelCreating States exactly which lists the tables are connected as many-to-many through
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
