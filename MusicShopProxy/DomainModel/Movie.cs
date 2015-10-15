@@ -16,7 +16,7 @@ namespace MovieShopProxy.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Title")]
-        [StringLength(30)]
+        [StringLength(50)]
         public string Title { get; set; }
         [Range(1, 9000)]
         [DataType("number")]
