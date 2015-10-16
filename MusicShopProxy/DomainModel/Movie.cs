@@ -28,6 +28,8 @@ namespace MovieShopProxy.Models
         public string TrailerURL { get; set; }
         [Display(Name = "Picture Link")]
         public string PictureURL { get; set; }
+        [Range(1, 5)]
+        public int Rating { get; set; }
         public virtual ICollection<Genre> Genres { get; set; }
 
     }

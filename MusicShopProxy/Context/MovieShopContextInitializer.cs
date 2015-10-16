@@ -28,6 +28,7 @@ namespace MovieShopProxy.Context
                 Price = 200,
                 PictureURL = "http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-the_dark_knight_movie_poster.jpg",
                 TrailerURL = "https://www.youtube.com/embed/EXeTwQWrcwY",
+                Rating = 5,
                 Genres = new List<Genre>() { genre1, genre2 },
             });
             movies.Add(new Movie() {
@@ -36,6 +37,7 @@ namespace MovieShopProxy.Context
                 Price = 250,
                 PictureURL = "http://www.movienewz.com/img/gallery/martian/posters/martian_movie_poster_1.jpg",
                 TrailerURL = "https://www.youtube.com/embed/ej3ioOneTy8",
+                Rating = 4,
                 Genres = new List<Genre>() { genre1 },
             });
             movies.Add(new Movie() {
@@ -44,6 +46,7 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "http://www.movienewz.com/img/gallery/insurgent/posters/insurgent_movie_poster_3.jpg",
                 TrailerURL = "https://www.youtube.com/embed/IR-l_TSjlEo",
+                Rating = 3,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
@@ -53,6 +56,7 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2011/12/grey-movie-poster.jpg",
                 TrailerURL = "https://www.youtube.com/embed/Hfb0-U0ydj8",
+                Rating = 2,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
@@ -62,6 +66,7 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "http://images5.fanpop.com/image/photos/26200000/Real-Steel-movie-posters-26233237-1079-1600.jpg",
                 TrailerURL = "https://www.youtube.com/embed/3S8a180uYBM",
+                Rating = 1,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
@@ -71,15 +76,17 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "https://bandbent.files.wordpress.com/2012/08/expendables-2-movie-poster-comic-con-high-quality.jpg",
                 TrailerURL = "https://www.youtube.com/embed/C6RU5y2fU6s",
+                Rating = 3,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
             {
-                Title = "Harry Potter and The Order of the Phoenix",
+                Title = "Harry Potter",
                 ReleaseDate = new DateTime(2007, 07, 11),
                 Price = 150,
                 PictureURL = "http://www.freedesign4.me/wp-content/gallery/posters/free-movie-film-poster-harry-potter-phoenix.jpg",
                 TrailerURL = "https://www.youtube.com/embed/CQAX-YwX6iM",
+                Rating = 3,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
@@ -89,6 +96,7 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "http://blog.moviepostershop.com/wp-content/uploads/2011/03/Thor-movie-poster.jpg",
                 TrailerURL = "https://www.youtube.com/embed/JOddp-nlNvQ",
+                Rating = 3,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
@@ -98,6 +106,7 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "http://www.printmag.com/wp-content/uploads/skyfall_xlg.jpg",
                 TrailerURL = "https://www.youtube.com/embed/6kw1UVovByw",
+                Rating = 4,
                 Genres = new List<Genre>() { genre2 },
             });
             movies.Add(new Movie()
@@ -197,6 +206,7 @@ namespace MovieShopProxy.Context
                 Price = 150,
                 PictureURL = "http://images2.fanpop.com/images/photos/8400000/Movie-Posters-movies-8405072-1723-2560.jpg",
                 TrailerURL = "https://www.youtube.com/embed/f6acw690AqQ",
+                Rating = 3,
                 Genres = new List<Genre>() { genre2 },
             });
 

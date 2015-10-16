@@ -22,7 +22,6 @@ namespace MovieShopProxy.Context
         }
         //OnModelCreating States exactly which lists the tables are connected as many-to-many through
 
-
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         
