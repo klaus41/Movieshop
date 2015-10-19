@@ -44,16 +44,7 @@
                 @Html.EditorFor(model => model.TrailerURL, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
-        <form action="form_action.asp">
-            <select name="Genre" multiple>  
-                @foreach(var item in)
-                {
-                    <option>@item</option>
-                }
-                
-            </select>
-            <input type="submit">
-        </form>
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
