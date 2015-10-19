@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<MovieShopProxy.Models.Movie>
 @{ 
     Layout = null;
-    int index = 0;
     var listCount = Model.Count();
 }
 <html>
     <head>
         <title>Movie Shop - Buy The Newest Movies Online!</title>
-        <style>
+        <style type="text/css">
             body{
                 margin: 0px;
                 padding: 0px;
                 width: 100%;
                 height: 100%;
-                vertical-align: middle;
+                font-size: 0px;
+                text-align: center;
+                min-width: 1250px;
             }
             #backgroundImage{
                 display: block;
@@ -31,28 +32,32 @@
             }
             #filterHolder{
                 position: fixed;
-                width: 10%;
-                background-color: rgba(100, 100, 100, 0.25);
-                top: 30%;
-                transition: 0.2s;
+                background-color: rgba(100, 100, 100, 0.55);
+                width: 100px;
+                height: 250px;
+                top: 50%;
+                margin-top: -125px;
+                z-index: 9999;
             }
             #filterHolder:hover{
-                background-color: rgba(100, 100, 100, 0.75);
+                background-color: rgba(100, 100, 100, 0.85);
             }
             #bodyHolder{
-                position: absolute;
-                width: 80%;
-                height: 150%;
-                top: 7%;
-                margin-left: 10%;
-                margin-right: 10%;
+                position: relative;
+                max-width: 1050px;
+                margin-top: 100px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
             }
             .moviePoster{
                 position: relative;
-                display: block;
-                width: 70%;
-                height: 100%;
-                margin: auto;
+                display: inline-block;
+                width: 150px;
+                height: 250px;
+                margin-top: 40px;
+                margin-left: 30px;
+                margin-right: 30px;
                 background-size: 100% 100%;
                 box-shadow: 5px 5px 5px black;
             }
@@ -63,82 +68,61 @@
                 opacity: 1;
             }
             .moviePoster:active > .movieInformation{
-                background-color: rgba(0, 100, 0, 0.75);
-            }
-            .movieTable{
-                border-spacing: 0px;
-                padding-top: 3%;
-                padding-bottom: 3%;
-                height: 28%;
-                width: 100%;
-                text-align: center;
-            }
-            td{
-                width: 10%;
-                text-align: center;
+                background-color: rgba(255, 255, 255, 0.75);
+                color: black;
             }
             #filterHeader{
                 width: 100%;
-                margin-top: 5%;
+                margin-top: 10px;
                 color: white;
                 font-family: Tahoma;
-                font-size: 2.3vh;
+                font-size: 16px;
                 text-align: center;
             }
             .filterTable, .filterTable2{
                 border-spacing: 0px;
                 position: relative;
-                margin-top: 15%;
+                margin-top: 10px;
                 color: white;
                 font-family: Tahoma;
-                font-size: 1.7vh;
-            }
-            .filterTable td, .filterTable2 td{
+                font-size: 12px;
                 text-align: left;
             }
             .filterTable td select, .filterTable2 td select{
                 width: 100%;
                 font-family: Tahoma;
-                font-size: 1.7vh;
+                font-size: 12px;
                 text-indent: 0px;
+                text-align: left;
             }
             th{
                 text-align: center;
             }
-            .filterTable2{
-                margin-bottom: 5%;
-            }
             #searchHolder{
-                position: fixed;
+                position: relative;
                 top: 0px;
                 width: 100%;
-                height: 5%;
+                height: 30px;
                 background: -webkit-linear-gradient(rgba(100, 100, 100, 1), rgba(100, 100, 100, 0));
                 text-align: center;
                 z-index: 9999;
-                transition: 0.2s;
             }
             #searchHolder:hover{
                 background-color: rgba(100, 100, 100, 0.75);
             }
             #searchForm input{
-                font-size: 1.5vh;
-            }
-            #searchHolderTable{
-                position: relative;
-                border-spacing: 0px;
-                height: 100%;
+                font-size: 12px;
             }
             .movieInformation{
                 position: relative;
-                height: 101%;
-                width: 101%;
+                height: 250px;
+                width: 150px;
                 background-color: rgba(0, 0, 0, 0.75);
                 color: white;
                 font-family: Tahoma;
-                font-size: 1.5vh;
+                font-size: 12px;
                 opacity: 0;
-                text-align: left;
+                text-align: center;
             }
             a.moviePoster:visited > #testDiv{
                 background-color: green;
@@ -152,7 +136,6 @@
                 bottom: 0;
                 background-color: rgba(0, 0, 0, 0.75);
                 z-index: -99999;
-                transition: 0.2s;
             }
             #modalOpen:target{
                 display: block;
@@ -160,30 +143,66 @@
             }
             #modalOpen div{
                 position: absolute;
-                top: 25%;
-                left: 25%;
-                height: 50%;
-                width: 50%;
+                width: 800px;
+                height: 500px;
+                left: 50%;
+                top: 50%;
+                margin-left: -400px;
+                margin-top: -250px;
+                background-color: gray;
+                text-align: left
             }
             #modalOpen a{
                 position: absolute;
-                top: -3%;
-                right: -1.5%;
-                width: 3%;
-                text-decoration: none;
                 background-color: black;
                 color: white;
                 font-family: monospace;
-                font-size: 3vh;
+                font-size: 20px;
+                line-height: 50px;
+                vertical-align: middle;
+                text-decoration: none;
                 text-align: center;
-                font-weight: bold;
+                height: 50px;
+                width: 50px;
+                right: -25px;
+                top: -25px;
+                border-radius: 25px;
+                z-index: 99999;
+                border: solid white 2px;
             }
             #modalOpen a:hover{
-                color: black;
+                color: white;
                 background-color: red;
             }
             #modalOpen a:active{
+                color: red;
+                background-color: white;
+                border: solid red 2px;
+            }
+            #modalOpen div #orderMovieInModal{
+                position: relative;
+                float: left;
+                width: 200px;
+                height: 300px;
+                margin: 0px;
+                top: 0px;
+                left: 0px;
+            }
+            #modalOpen div #plotDescription{
+                position: relative;
+                float: left;
+                width: 780px;
+                height: 150px;
                 color: white;
+                font-size: 16px;
+                font-family: Tahoma;
+                padding: 10px;
+                margin: 0px;
+                margin-top: 20px;
+                top: 0px;
+                left: 0px;
+            }
+            #modalOpen div #orderMovieInModal input[type=submit]{
                 background-color: red;
             }
         </style>
@@ -191,16 +210,10 @@
     <body>
         <div id="backgroundImage"></div>
         <div id="searchHolder">
-            <table id="searchHolderTable">
-                <tr>
-                    <td>
-                        <form id="searchForm" method="post" action=""><!--Remember to add the action method in order for the search to work!-->
-                            <input type="text" />
-                            <input type="submit" value="Search Our Shop!" />
-                        </form>
-                    </td>
-                </tr>
-            </table>
+            <form id="searchForm" method="post" action=""><!--Remember to add the action method in order for the search to work!-->
+                <input type="text" />
+                <input type="submit" value="Search Our Shop!" />
+            </form>
         </div>
         <div id="filterHolder">
             <div id="filterHeader">Movie Filter</div>
@@ -275,55 +288,58 @@
         </div>
         <div id="modalOpen">
             <div>
-                <a id="modalClose" href="#closeModal" onclick="closeModal();">X</a>
-                <iframe id="player" style="width: 100%; height: 100%;" src="https://youtube.com/v/38MAY1sEf7U?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe>
-                <script>
-                    function closeModal() {
-                        document.getElementById('player').stop();
-                    }
-                </script>
+                <a id="modalClose" href="#closeModal" onclick="setURL(&quot;&quot;);">X</a>
+                <iframe id="player" style="width: 600px; height: 300px; float: left;" src="" frameborder="0" allowfullscreen></iframe>
+                <div id="orderMovieInModal">
+                    <form method="post" action=""><!--remember to include an action here-->
+                        <input type="hidden" id="movieUrl"/>
+                        <input type="submit" value="Buy This Movie!" />
+                    </form>
+                </div>
+                <div id="plotDescription">
+                    Lorem ipsum dolor sit amet, ea porro simul theophrastus vis, ea cibo voluptua quo. Etiam novum laoreet nec eu, constituto accommodare nam id, virtute atomorum indoctum vis id. Ea nullam erroribus eum. Ludus oratio singulis cu nec, eius clita eloquentiam te vel, ne pro minimum gloriatur honestatis. Id placerat laboramus sit. Ne idque aliquando definitionem sea, ex eum quas movet liberavisse, ad praesent constituam pri.
+
+                    Fugit salutatus ei mel. Congue maiestatis eum ut. Mei unum adipisci ullamcorper cu, his fugit rationibus efficiantur te. Vel cu virtute adolescens mediocritatem, ad sit affert vidisse.
+
+                    ption te qui. An eros deleniti per, id possim utamur sit. Inani habemus atomorum nec ea, qui ne facete pertinax.
+
+                </div>
             </div>
         </div>
+        <script>
+            function setURL(url) {
+                document.getElementById("player").setAttribute("src", url);
+                document.getElementById("movieUrl").setAttribute("value", url);
+            }
+        </script>
         <div id="bodyHolder">
-            @for (int i = 1; i <= 4; i++)
+            @for (int i = 1; i <= 10; i++)
             {
-                <table class="movieTable">
-                    <tr>
-                        @for (int j = 1; j <= 5; j++)
-                        {
+                <a href="#modalOpen" class="moviePoster" onclick="setURL(&quot;@Model.ElementAt(i - 1).TrailerURL&quot;);" style="background-image: url('@Model.ElementAt(i - 1).PictureURL');">
+                    <table class="movieInformation">
+                        <tr>
+                            <td>Title:</td>
+                            <td>@Model.ElementAt(i - 1).Title</td>
+                        </tr>
+                        <tr>
+                            <td>Released:</td>
+                            <td>@Model.ElementAt(i - 1).ReleaseDate</td>
+                        </tr>
+                        <tr>
+                            <td>Genre:</td>
                             <td>
-                                @if ((((i - 1) * 5) + j) - 1 < listCount)
+                                @foreach (var item in Model.ElementAt(i - 1).Genres)
                                 {
-                                    <a href="#modalOpen" class="moviePoster" style="background-image: url('@Model.ElementAt((((i - 1) * 5) + j) - 1).PictureURL');">
-                                        <table class="movieInformation">
-                                            <tr>
-                                                <td>Title:</td>
-                                                <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).Title</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Released:</td>
-                                                <td>@Model.ElementAt((((i - 1) * 5) + j) - 1).ReleaseDate</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Genre:</td>
-                                                <td>
-                                                    @foreach(var item in Model.ElementAt((((i - 1) * 5) + j) - 1).Genres)
-                                                    {
-                                                        @item.Name<br />
-                                                    }
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rating:</td>
-                                                <td>&#8902;&#8902;&#8902;&#8902;</td>
-                                            </tr>
-                                        </table>
-                                    </a>
+                                    @item.Name<br />
                                 }
                             </td>
-                        }
-                    </tr>
-                </table>
+                        </tr>
+                        <tr>
+                            <td>Rating:</td>
+                            <td>&#8902;&#8902;&#8902;&#8902;</td>
+                        </tr>
+                    </table>
+                </a>
             }
         </div>
     </body>
