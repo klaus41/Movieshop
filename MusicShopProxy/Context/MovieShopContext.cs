@@ -13,7 +13,6 @@ namespace MovieShopProxy.Context
     {
         public MovieShopContext(): base("MovieShopDB")
         {
-            Debug.WriteLine("Making a database!");
             Database.SetInitializer(new MovieShopContextInitializer());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -24,7 +23,8 @@ namespace MovieShopProxy.Context
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
-        
+        public DbSet<Customer> Customers { get; set; }
+
 
 
     }

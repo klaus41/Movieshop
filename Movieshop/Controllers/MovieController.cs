@@ -32,6 +32,10 @@ namespace Movieshop.Controllers
 
             return View(list);
         }
+        public ActionResult StartPage()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Create(Movie movie)

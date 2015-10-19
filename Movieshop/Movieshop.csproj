@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Content\GenreController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
@@ -180,6 +181,11 @@
     <Content Include="Views\Genres\Create.cshtml" />
     <Content Include="Views\Genres\Update.cshtml" />
     <Content Include="Views\Genres\Delete.cshtml" />
+    <Content Include="Views\Movie\StartPage.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Update.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

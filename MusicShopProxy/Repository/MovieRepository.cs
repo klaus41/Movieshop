@@ -12,11 +12,17 @@ namespace Movieshop.Repository
     {
         public List<Movie> ReadAll()
         {
-            using (var ctx = new MovieShopContext())
-            {
-                return ctx.Movies.Include("Genres").ToList();
-                    
+            try {
+                using (var ctx = new MovieShopContext())
+                {
+                    return ctx.Movies.Include("Genres").ToList();
+
+                }
             }
+            catch (Exception e) {
+                    return null;
+            }
+           
         }
 
 

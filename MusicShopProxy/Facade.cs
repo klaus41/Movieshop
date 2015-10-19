@@ -10,6 +10,7 @@ namespace MovieShopProxy.Repository
     {
         private MovieRepository movieRepo;
         private GenreRepository genreRepo;
+        private CustomerRepository customerRepo;
 
         public MovieRepository GetMovieRepository()
         {
@@ -26,6 +27,15 @@ namespace MovieShopProxy.Repository
                 genreRepo = new GenreRepository();
             }
             return genreRepo;
+        }
+
+        public CustomerRepository GetCustomerRepository()
+        {
+            if (customerRepo == null)
+            {
+                customerRepo = new CustomerRepository();
+            }
+            return customerRepo;
         }
     }
 }
