@@ -18,7 +18,18 @@ namespace MovieShopProxy.Repository
                 return ctx.Genres.ToList();
             }
         }
-        
+
+        public void Add(Genre genre)
+        {
+            using (var ctx = new MovieShopContext())
+            {
+                //Create the queries
+                ctx.Genres.Add(genre);
+                //Execute the queries
+                ctx.SaveChanges();
+            }
+        }
+
         public void Delete(int genreId)
         {
             Genre genre = FindGenre(genreId);

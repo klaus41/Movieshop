@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MovieShopProxy.Context
 {
-    public class MovieShopContextInitializer : DropCreateDatabaseAlways<MovieShopContext>
+    public class MovieShopContextInitializer : DropCreateDatabaseIfModelChanges<MovieShopContext>
     {
         protected override void Seed(MovieShopContext context)
         {

@@ -1,7 +1,9 @@
 ﻿
+using MovieShopProxy.DomainModel;
 using MovieShopProxy.Models;
 using MovieShopProxy.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,7 +24,13 @@ namespace Movieshop.Controllers
         }
         public ActionResult Create()
         {
-            return View();
+            List<Movie> movieList = facade.GetMovieRepository().ReadAll();
+            List<Genre> genreList = facade.GetGenresRepository().ReadAll();
+            List<ICollection> list = new List<ICollection>();
+            list.Add(movieList);
+            list.Add(genreList);
+
+            return View(list);
         }
 
         [HttpPost]
