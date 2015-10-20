@@ -118,12 +118,12 @@ namespace Movieshop.Repository
             return yearList;
         }
 
-        public List<Movie> NameFilter(string name)
+        public List<Movie> TitleFilter(string filter)
         {
             List<Movie> nameList = new List<Movie>();
             foreach (var movie in ReadAll())
             {
-                if (movie.Title.Contains(name))
+                if (movie.Title.Contains(filter))
                 {
                     nameList.Add(movie);
                 }
