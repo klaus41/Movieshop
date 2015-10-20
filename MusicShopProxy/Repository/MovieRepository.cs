@@ -88,7 +88,47 @@ namespace Movieshop.Repository
                     }
                 }
             }
+        }
 
+        public List<Movie> RatingFilter(int rating)
+        {
+            List<Movie> ratingList = new List<Movie>();
+            foreach (var movie in ReadAll())
+            {
+                if (rating == movie.Rating)
+                {
+                    ratingList.Add(movie);
+                }
+            }
+
+            return ratingList;
+              
+        }
+
+        public List<Movie> YearFilter(int year)
+        {
+            List<Movie> yearList = new List<Movie>();
+            foreach (var movie in ReadAll())
+            {
+                if (year == movie.ReleaseDate.Year)
+                {
+                    yearList.Add(movie);
+                }
+            }
+            return yearList;
+        }
+
+        public List<Movie> NameFilter(string name)
+        {
+            List<Movie> nameList = new List<Movie>();
+            foreach (var movie in ReadAll())
+            {
+                if (movie.Title.Contains(name))
+                {
+                    nameList.Add(movie);
+                }
+            }
+            return nameList;
 
         }
     }
