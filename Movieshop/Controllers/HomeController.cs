@@ -10,26 +10,25 @@ namespace Movieshop.Controllers
 {
     public class HomeController : Controller
     {
-        //hi ivan
         private Facade facade = new Facade();
+
         public ActionResult Index()
         {
             List<Movie> movies = facade.GetMovieRepository().ReadAll();
             return View(movies);
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult OrderReceived(string trailerURL)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            Movie movieFound = facade.GetMovieRepository().GetMovieByTrailerURL(trailerURL);
+            return View(movieFound);
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult OrderConfirmed(string customerEmail)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            
         }
     }
 }

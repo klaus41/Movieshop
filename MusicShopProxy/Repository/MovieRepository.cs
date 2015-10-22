@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity.Infrastructure;
+using MovieShopProxy.DomainModel;
 
 namespace Movieshop.Repository
 {
@@ -19,6 +20,17 @@ namespace Movieshop.Repository
             }
         }
 
+        public Movie GetMovieByTrailerURL(string trailerURL)
+        {
+            foreach(var item in ReadAll())
+            {
+                if (item.TrailerURL.Equals(trailerURL))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
 
         public void Add(Movie movie)
         {

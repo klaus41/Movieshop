@@ -14,7 +14,6 @@
                 height: 100%;
                 font-size: 0px;
                 text-align: center;
-                min-width: 1250px;
             }
             #backgroundImage{
                 display: block;
@@ -48,6 +47,10 @@
                 margin-top: 100px;
                 margin-left: auto;
                 margin-right: auto;
+                text-align: left;
+            }
+            #wrapper{
+                width: auto;
                 text-align: left;
             }
             .moviePoster{
@@ -127,6 +130,9 @@
             a.moviePoster:visited > #testDiv{
                 background-color: green;
             }
+            a{
+                text-decoration: none;
+            }
             #modalOpen{
                 display: none;
                 position: fixed;
@@ -152,7 +158,10 @@
                 background-color: gray;
                 text-align: left
             }
-            #modalOpen a{
+            #modalOpen button{
+                -webkit-appearance: none;
+                outline: none;
+                padding: 0px;
                 position: absolute;
                 background-color: black;
                 color: white;
@@ -164,17 +173,19 @@
                 text-align: center;
                 height: 50px;
                 width: 50px;
-                right: -25px;
-                top: -25px;
-                border-radius: 25px;
+                right: -27px;
+                top: -27px;
+                border-radius: 27px;
                 z-index: 99999;
                 border: solid white 2px;
+                cursor: pointer;
+                box-sizing: unset;
             }
-            #modalOpen a:hover{
+            #modalOpen button:hover{
                 color: white;
                 background-color: red;
             }
-            #modalOpen a:active{
+            #modalOpen button:active{
                 color: red;
                 background-color: white;
                 border: solid red 2px;
@@ -187,6 +198,9 @@
                 margin: 0px;
                 top: 0px;
                 left: 0px;
+                line-height: 300px;
+                text-align: center;
+                vertical-align: middle;
             }
             #modalOpen div #plotDescription{
                 position: relative;
@@ -203,7 +217,33 @@
                 left: 0px;
             }
             #modalOpen div #orderMovieInModal input[type=submit]{
-                background-color: red;
+                position: absolute;
+                outline: none;
+                background-color: black;
+                color: white;
+                font-family: Tahoma;
+                font-size: 16px;
+                border-radius: 24px;
+                -webkit-appearance: none;
+                border: none;
+                padding: 0px;
+                top: 50%;
+                left: 50%;
+                height: 50px;
+                width: 140px;
+                margin-top: -27px;
+                margin-left: -72px;
+                border: 2px solid white;
+                cursor: pointer;
+                box-sizing: unset;
+            }
+            #modalOpen div #orderMovieInModal input[type=submit]:hover{
+                background-color: green;
+            }
+            #modalOpen div #orderMovieInModal input[type=submit]:active{
+                background-color: white;
+                color: green;
+                border: 2px solid green;
             }
         </style>
     </head>
@@ -288,11 +328,12 @@
         </div>
         <div id="modalOpen">
             <div>
-                <a id="modalClose" href="#closeModal" onclick="setURL(&quot;&quot;);">X</a>
+                <button type="submit" id="modalClose">X
+                </button>
                 <iframe id="player" style="width: 600px; height: 300px; float: left;" src="" frameborder="0" allowfullscreen></iframe>
                 <div id="orderMovieInModal">
-                    <form method="post" action=""><!--remember to include an action here-->
-                        <input type="hidden" id="movieUrl"/>
+                    <form method="post" action="~/Home/OrderReceived">
+                        <input type="hidden" id="movieUrl" name="trailerURL"/>
                         <input type="submit" value="Buy This Movie!" />
                     </form>
                 </div>
@@ -307,6 +348,10 @@
             </div>
         </div>
         <script>
+            document.getElementById("modalClose").onclick = function(){
+                location.href = "#modalClose";
+                setURL("");
+            }
             function setURL(url) {
                 document.getElementById("player").setAttribute("src", url);
                 document.getElementById("movieUrl").setAttribute("value", url);
@@ -315,7 +360,7 @@
         <div id="bodyHolder">
             @for (int i = 1; i <= 10; i++)
             {
-                <a href="#modalOpen" class="moviePoster" onclick="setURL(&quot;@Model.ElementAt(i - 1).TrailerURL&quot;);" style="background-image: url('@Model.ElementAt(i - 1).PictureURL');">
+                <a class="moviePoster" href="#modalOpen" onclick="setURL(&quot;@Model.ElementAt(i - 1).TrailerURL&quot;);" style="background-image: url('@Model.ElementAt(i - 1).PictureURL');">
                     <table class="movieInformation">
                         <tr>
                             <td>Title:</td>
