@@ -13,11 +13,17 @@ namespace Movieshop.Repository
     {
         public List<Movie> ReadAll()
         {
-            using (var ctx = new MovieShopContext())
-            {
-                return ctx.Movies.Include("Genres").ToList();
-                    
+            try {
+                using (var ctx = new MovieShopContext())
+                {
+                    return ctx.Movies.Include("Genres").ToList();
+
+                }
             }
+            catch (Exception e) {
+                    return null;
+            }
+           
         }
 
         public Movie GetMovieByTrailerURL(string trailerURL)
@@ -94,7 +100,47 @@ namespace Movieshop.Repository
                     }
                 }
             }
+        }
 
+        public List<Movie> RatingFilter(int rating)
+        {
+            List<Movie> ratingList = new List<Movie>();
+            foreach (var movie in ReadAll())
+            {
+                if (rating >= movie.Rating)
+                {
+                    ratingList.Add(movie);
+                }
+            }
+
+            return ratingList;
+              
+        }
+
+        public List<Movie> YearFilter(int year)
+        {
+            List<Movie> yearList = new List<Movie>();
+            foreach (var movie in ReadAll())
+            {
+                if (year == movie.ReleaseDate.Year)
+                {
+                    yearList.Add(movie);
+                }
+            }
+            return yearList;
+        }
+
+        public List<Movie> TitleFilter(string filter)
+        {
+            List<Movie> nameList = new List<Movie>();
+            foreach (var movie in ReadAll())
+            {
+                if (movie.Title.Contains(filter))
+                {
+                    nameList.Add(movie);
+                }
+            }
+            return nameList;
 
         }
     }
