@@ -95,7 +95,7 @@ namespace Movieshop.Repository
             List<Movie> ratingList = new List<Movie>();
             foreach (var movie in ReadAll())
             {
-                if (rating == movie.Rating)
+                if (rating >= movie.Rating)
                 {
                     ratingList.Add(movie);
                 }

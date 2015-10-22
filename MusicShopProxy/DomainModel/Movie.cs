@@ -20,15 +20,20 @@ namespace MovieShopProxy.Models
         public string Title { get; set; }
         [Range(1, 9000)]
         [DataType("number")]
+        [Required]
         public int Price { get; set; }
         [DataType("date")]
         [Display(Name = "Release Date")]
+        [Required]
         public DateTime ReleaseDate { get; set; }
         [Display(Name = "Trailer Link")]
+        [Required]
         public string TrailerURL { get; set; }
         [Display(Name = "Picture Link")]
+        [Required]
         public string PictureURL { get; set; }
         [Range(0, 5)]
+        [Required]
         public int Rating { get; set; }
         public virtual ICollection<Genre> Genres { get; set; }
 

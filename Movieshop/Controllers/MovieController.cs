@@ -24,13 +24,16 @@ namespace Movieshop.Controllers
         }
         public ActionResult Create()
         {
+            /*
+            For adding Genre to the create movie:
+            
             List<Movie> movieList = facade.GetMovieRepository().ReadAll();
             List<Genre> genreList = facade.GetGenresRepository().ReadAll();
             List<ICollection> list = new List<ICollection>();
             list.Add(movieList);
             list.Add(genreList);
-
-            return View(list);
+            */
+            return View();
         }
         public ActionResult StartPage()
         {

@@ -51,6 +51,7 @@ namespace MovieShopProxy.Repository
                     {
                         movieDB.Name = customer.Name;
                         movieDB.Email = customer.Email;
+                        movieDB.Password = customer.Password;
                         ctx.SaveChanges();
 
                     }

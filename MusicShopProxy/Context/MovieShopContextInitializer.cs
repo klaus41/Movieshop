@@ -21,7 +21,7 @@ namespace MovieShopProxy.Context
             Genre genre2 = context.Genres.Add(new Genre() { Id = 2, Name = "Science Fiction" });
             Genre genre3 = context.Genres.Add(new Genre() { Id = 3, Name = "Thriller" });
 
-            Customer customer1 = context.Customers.Add(new Customer() { Id = 1, Name = "Kim Cormen", Email = "Google@google.tinfoil" });
+            Customer customer1 = context.Customers.Add(new Customer() { Id = 1, Name = "Kim Cormen", Email = "Google@google.tinfoil", Password = "1234abcd" });
                 
             movies.Add(new Movie() {
                 Title = "The Dark Knight",
