@@ -35,6 +35,8 @@ namespace MovieShopProxy.Models
         [Range(0, 5)]
         [Required]
         public int Rating { get; set; }
+        [Required]
+        public String PlotDescription { get; set; }
         public virtual ICollection<Genre> Genres { get; set; }
 
     }

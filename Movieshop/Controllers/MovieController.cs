@@ -41,10 +41,15 @@ namespace Movieshop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Movie movie)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id, Title, Price, ReleaseDate, TrailerURL, PictureURL, Rating, PlotDescription")] Movie movie)
         {
-            facade.GetMovieRepository().Add(movie);
-            return Redirect("Index");
+            if (ModelState.IsValid)
+            {
+                facade.GetMovieRepository().Add(movie);
+                return Redirect("Index");
+            }
+            return View(movie);
         }
         
         public ActionResult Delete(int movieId)

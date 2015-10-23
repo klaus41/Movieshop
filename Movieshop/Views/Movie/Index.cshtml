@@ -17,6 +17,18 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrailerURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlotDescription)
+        </th>
         <th></th>
     </tr>
     @foreach (var item in Model)
@@ -40,6 +52,10 @@
             <td>
                 @foreach (var genre in item.Genres) { @Html.DisplayFor(modelItem => genre.Name)}
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlotDescription)
+            </td>
+
             <td>
                 @Html.ActionLink("Update", "Update", new { movieId = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { movieId = item.Id }) |

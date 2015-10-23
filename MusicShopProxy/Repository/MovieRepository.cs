@@ -82,6 +82,8 @@ namespace Movieshop.Repository
                         movieDB.Price = movie.Price;
                         movieDB.TrailerURL = movie.TrailerURL;
                         movieDB.PictureURL = movie.PictureURL;
+                        movieDB.Rating = movie.Rating;
+                        movieDB.PlotDescription = movie.PlotDescription;
                         //movieDB.Genres = movie.Genres;
                         ctx.SaveChanges();
 
