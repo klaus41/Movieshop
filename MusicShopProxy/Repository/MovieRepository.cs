@@ -133,5 +133,16 @@ namespace Movieshop.Repository
             return nameList;
 
         }
+        public Movie GetMovieByTrailerURL(string trailerURL)
+        {
+            foreach (var item in ReadAll())
+            {
+                if (item.TrailerURL.Equals(trailerURL))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
     }
 }

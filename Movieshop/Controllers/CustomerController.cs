@@ -46,8 +46,12 @@ namespace Movieshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Update([Bind(Include = "Id,Name,Email,Password")] Customer customer)
         {
-            facade.GetCustomerRepository().Update(customer);
-            return RedirectToAction("Index", "Customer");
+            if (ModelState.IsValid)
+            {
+                facade.GetCustomerRepository().Update(customer);
+                return RedirectToAction("Index", "Customer");
+            }
+            return View(customer);
         }
 
         public ActionResult Delete(int customerId)
@@ -60,6 +64,7 @@ namespace Movieshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteAccepted(int customerId)
         {
+
             facade.GetCustomerRepository().Delete(customerId);
             return RedirectToAction("Index", "Customer");
         }
