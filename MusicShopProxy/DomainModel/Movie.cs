@@ -33,7 +33,10 @@ namespace MovieShopProxy.Models
         [Required]
         public string PictureURL { get; set; }
         [Range(0, 5)]
+<<<<<<< HEAD
+=======
         [Required]
+>>>>>>> 116878fe6914ed3d57a5451fdf10f82202059539
         public int Rating { get; set; }
         [Required]
         public String PlotDescription { get; set; }

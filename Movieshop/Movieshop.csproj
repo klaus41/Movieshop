@@ -181,12 +181,19 @@
     <Content Include="Views\Genres\Create.cshtml" />
     <Content Include="Views\Genres\Update.cshtml" />
     <Content Include="Views\Genres\Delete.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Home\OrderReceived.cshtml" />
+=======
     <Content Include="Views\Movie\StartPage.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Update.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\OrderReceived.cshtml" />
+=======
+>>>>>>> 116878fe6914ed3d57a5451fdf10f82202059539
+>>>>>>> 96fa5b2e309412419fd60a1dbed81171f7b8fe76
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
